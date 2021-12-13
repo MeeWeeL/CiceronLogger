@@ -1,6 +1,7 @@
-package com.meeweel.ciceronlogger.model
+package com.meeweel.ciceronlogger.data.repository
 
-import com.meeweel.ciceronlogger.presenter.UserRepository
+import com.meeweel.ciceronlogger.data.UserModel
+import com.meeweel.ciceronlogger.user.UserRepository
 
 class UserRepositoryImpl : UserRepository {
 

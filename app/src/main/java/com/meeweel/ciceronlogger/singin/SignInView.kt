@@ -1,4 +1,4 @@
-package com.meeweel.ciceronlogger.cicerone
+package com.meeweel.ciceronlogger.singin
 
 import moxy.MvpView
 

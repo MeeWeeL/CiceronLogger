@@ -1,6 +1,6 @@
-package com.meeweel.ciceronlogger.cicerone
+package com.meeweel.ciceronlogger.user
 
-import com.meeweel.ciceronlogger.model.UserModel
+import com.meeweel.ciceronlogger.data.UserModel
 import moxy.MvpView
 import moxy.viewstate.strategy.alias.SingleState
 

@@ -1,4 +1,4 @@
-package com.meeweel.ciceronlogger.view
+package com.meeweel.ciceronlogger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,7 @@ import com.meeweel.ciceronlogger.R
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.navigatorHolder
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
 import com.meeweel.ciceronlogger.cicerone.CustomNavigator
-import com.meeweel.ciceronlogger.cicerone.SignInScreen
+import com.meeweel.ciceronlogger.singin.SignInScreen
 
 class MainActivity : AppCompatActivity() {
 

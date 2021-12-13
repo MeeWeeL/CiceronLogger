@@ -1,11 +1,10 @@
-package com.meeweel.ciceronlogger.presenter
+package com.meeweel.ciceronlogger.user
 
 import com.meeweel.ciceronlogger.cicerone.CustomRouter
-import com.meeweel.ciceronlogger.cicerone.UserView
-import com.meeweel.ciceronlogger.model.UserModel
+import com.meeweel.ciceronlogger.data.UserModel
 import moxy.MvpPresenter
 
-class MainPresenter(
+class UserPresenter(
     private val userRepository: UserRepository,
     private val router: CustomRouter
 ) : MvpPresenter<UserView>() {

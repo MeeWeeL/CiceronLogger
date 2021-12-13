@@ -1,15 +1,13 @@
-package com.meeweel.ciceronlogger.view
+package com.meeweel.ciceronlogger.singin
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import com.meeweel.ciceronlogger.R
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
-import com.meeweel.ciceronlogger.cicerone.SignInView
 import com.meeweel.ciceronlogger.cicerone.UserRepositoryFactory
 import com.meeweel.ciceronlogger.databinding.SignInFragmentLayoutBinding
-import com.meeweel.ciceronlogger.model.UserModel
-import com.meeweel.ciceronlogger.presenter.SignInPresenter
+import com.meeweel.ciceronlogger.data.UserModel
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
 

@@ -1,9 +1,8 @@
-package com.meeweel.ciceronlogger.cicerone
+package com.meeweel.ciceronlogger.singin
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentFactory
 import com.github.terrakok.cicerone.androidx.FragmentScreen
-import com.meeweel.ciceronlogger.view.SingInFragment
 
 class SignInScreen : FragmentScreen {
 
