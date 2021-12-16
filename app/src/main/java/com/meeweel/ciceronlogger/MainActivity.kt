@@ -6,6 +6,7 @@ import com.meeweel.ciceronlogger.R
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.navigatorHolder
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
 import com.meeweel.ciceronlogger.cicerone.CustomNavigator
+import com.meeweel.ciceronlogger.quad.QuadScreen
 import com.meeweel.ciceronlogger.singin.SignInScreen
 
 class MainActivity : AppCompatActivity() {
@@ -16,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            router.newRootScreen(SignInScreen())
+            router.newRootScreen(QuadScreen())
         }
     }
 
