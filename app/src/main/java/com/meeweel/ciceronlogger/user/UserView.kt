@@ -11,6 +11,6 @@ interface UserView : MvpView {
      * @param user пользователь
      */
     @SingleState
-    fun showUser(user: UserModel)
+    fun showUser(user: String)
 
 }
