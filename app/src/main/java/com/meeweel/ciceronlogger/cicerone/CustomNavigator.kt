@@ -6,6 +6,8 @@ import androidx.fragment.app.FragmentTransaction
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.github.terrakok.cicerone.androidx.FragmentScreen
+import com.meeweel.ciceronlogger.githubuser.GitHubUserFragment
+import com.meeweel.ciceronlogger.githunusers.GitHubUsersFragment
 
 class CustomNavigator(activity: FragmentActivity, container: Int) :
     AppNavigator(activity, container) {
@@ -20,8 +22,8 @@ class CustomNavigator(activity: FragmentActivity, container: Int) :
         if (currentFragment != null) {
             fragmentTransaction
                 .setCustomAnimations(
-                    android.R.anim.slide_in_left,
-                    android.R.anim.slide_out_right,
+                    android.R.anim.fade_in,
+                    android.R.anim.fade_out,
                     android.R.anim.slide_in_left,
                     android.R.anim.slide_out_right
                 )

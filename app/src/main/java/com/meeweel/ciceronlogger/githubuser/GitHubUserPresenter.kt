@@ -2,12 +2,15 @@ package com.meeweel.ciceronlogger.githubuser
 
 import com.meeweel.ciceronlogger.data.forretrofit.GitHubUser
 import com.meeweel.ciceronlogger.data.forretrofit.GitHubUserRepository
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
+import io.reactivex.rxjava3.core.Scheduler
+import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import moxy.MvpPresenter
 
 class GitHubUserPresenter(
-    private val userId: Int,
+    private val userLogin: String,
     private val userRepository: GitHubUserRepository,
     private val subject: @NonNull BehaviorSubject<GitHubUser> = BehaviorSubject.create()
 ) : MvpPresenter<GitHubUserView>() {
@@ -15,9 +18,11 @@ class GitHubUserPresenter(
     override fun onFirstViewAttach() {
         setSubject()
         userRepository
-            .getUsers()
+            .getUserByLogin(userLogin)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
             .subscribe({
-                subject.onNext(it[userId-1])
+                subject.onNext(it)
             },{})
     }
 

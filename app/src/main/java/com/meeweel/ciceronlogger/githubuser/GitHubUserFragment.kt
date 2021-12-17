@@ -15,12 +15,12 @@ import moxy.ktx.moxyPresenter
 class GitHubUserFragment : MvpAppCompatFragment(R.layout.github_user_info_layout),
     GitHubUserView {
 
-    private val userId: String by lazy {
+    private val userLogin: String by lazy {
         arguments?.getString(ARG_USER_LOGIN).orEmpty()
     }
     private val presenter: GitHubUserPresenter by moxyPresenter {
         GitHubUserPresenter(
-            userId.toInt(),
+            userLogin,
             userRepository = GitHubUserRepositoryFactory.create()
         )
     }
@@ -30,6 +30,7 @@ class GitHubUserFragment : MvpAppCompatFragment(R.layout.github_user_info_layout
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinging = GithubUserInfoLayoutBinding.bind(view)
+        viewBinging.userName.text = userLogin
     }
 
     override fun toastError(text: String) {
@@ -46,10 +47,10 @@ class GitHubUserFragment : MvpAppCompatFragment(R.layout.github_user_info_layout
 
     companion object {
         private const val ARG_USER_LOGIN = "arg_user_login"
-        fun newInstance(userId: String): Fragment =
+        fun newInstance(userLogin: String): Fragment =
             GitHubUserFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_USER_LOGIN, userId)
+                    putString(ARG_USER_LOGIN, userLogin)
                 }
             }
     }
