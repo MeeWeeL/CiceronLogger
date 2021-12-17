@@ -1,0 +1,16 @@
+package com.meeweel.ciceronlogger.data.forretrofit
+
+import io.reactivex.rxjava3.core.Single
+
+class GitHubUserRepositoryImpl : GitHubUserRepository {
+
+    private val gitHubApi = GitHubApiFactory.create()
+
+    override fun getUsers(): Single<List<GitHubUser>> {
+        return gitHubApi.fetchUsers()
+    }
+
+    override fun getUserByLogin(userId: String): Single<GitHubUser> {
+        return gitHubApi.fetchUserByLogin(userId)
+    }
+}

@@ -5,8 +5,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.meeweel.ciceronlogger.R
-import com.meeweel.ciceronlogger.app.MainApp
-import com.meeweel.ciceronlogger.data.repository.UserRepositoryFactory
 import com.meeweel.ciceronlogger.databinding.QuadFragmentLayoutBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter

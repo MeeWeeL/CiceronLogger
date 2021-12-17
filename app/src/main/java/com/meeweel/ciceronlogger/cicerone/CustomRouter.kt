@@ -11,4 +11,8 @@ class CustomRouter : Router() {
     fun openDeepLink() {
         executeCommands(DeepLink())
     }
+
+    fun openSecondLink(login: String) {
+        executeCommands(SecondLink(login))
+    }
 }

@@ -2,12 +2,10 @@ package com.meeweel.ciceronlogger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.meeweel.ciceronlogger.R
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.navigatorHolder
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
 import com.meeweel.ciceronlogger.cicerone.CustomNavigator
-import com.meeweel.ciceronlogger.quad.QuadScreen
-import com.meeweel.ciceronlogger.singin.SignInScreen
+import com.meeweel.ciceronlogger.githunusers.GitHubUsersScreen
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         if (savedInstanceState == null) {
-            router.newRootScreen(QuadScreen())
+            router.newRootScreen(GitHubUsersScreen())
         }
     }
 

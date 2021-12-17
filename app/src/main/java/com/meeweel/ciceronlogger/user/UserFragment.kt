@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import com.meeweel.ciceronlogger.R
 import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
 import com.meeweel.ciceronlogger.data.repository.UserRepositoryFactory
-import com.meeweel.ciceronlogger.data.UserModel
 import com.meeweel.ciceronlogger.databinding.MainFragmentLayoutBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
