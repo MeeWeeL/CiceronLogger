@@ -6,4 +6,7 @@
     <string name="calculate">Calculate</string>
     <string name="result">result</string>
     <string name="enter_your_value">Enter your value</string>
+    <string name="user_name">user name</string>
+    <string name="show_info">show info</string>
+    <string name="user_link">user link</string>
 </resources>
