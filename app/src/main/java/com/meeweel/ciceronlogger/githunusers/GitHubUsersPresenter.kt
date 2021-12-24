@@ -7,12 +7,17 @@ import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.rxjava3.subjects.BehaviorSubject
 import moxy.MvpPresenter
+import javax.inject.Inject
 
 class GitHubUsersPresenter(
-    private val userRepository: GitHubUserRepository,
-    private val router: CustomRouter,
     private val subject: @NonNull BehaviorSubject<String> = BehaviorSubject.create()
 ) : MvpPresenter<GitHubUsersView>() {
+
+    @Inject
+    lateinit var userRepository: GitHubUserRepository
+
+    @Inject
+    lateinit var router: CustomRouter
 
     var focusedLogin = ""
     var id = 1

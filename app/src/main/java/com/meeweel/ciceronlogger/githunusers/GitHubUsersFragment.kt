@@ -5,8 +5,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.meeweel.ciceronlogger.R
-import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
-import com.meeweel.ciceronlogger.data.forretrofit.GitHubUserRepositoryFactory
+import com.meeweel.ciceronlogger.app.MainApp
 import com.meeweel.ciceronlogger.databinding.GithubChooseUserLayoutBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -14,11 +13,11 @@ import moxy.ktx.moxyPresenter
 class GitHubUsersFragment : MvpAppCompatFragment(R.layout.github_choose_user_layout), GitHubUsersView {
 
     lateinit var listener: View.OnClickListener
+
     private val presenter: GitHubUsersPresenter by moxyPresenter {
-        GitHubUsersPresenter(
-            userRepository = GitHubUserRepositoryFactory.create(),
-            router = router
-        )
+        GitHubUsersPresenter().apply {
+            MainApp.instance.component.inject(this)
+        }
     }
 
     private lateinit var viewBinging: GithubChooseUserLayoutBinding

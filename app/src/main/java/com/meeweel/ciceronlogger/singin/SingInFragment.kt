@@ -5,15 +5,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.meeweel.ciceronlogger.R
-import com.meeweel.ciceronlogger.app.MainApp.Navigation.router
+import com.meeweel.ciceronlogger.cicerone.CustomRouter
 import com.meeweel.ciceronlogger.data.repository.UserRepositoryFactory
 import com.meeweel.ciceronlogger.databinding.SignInFragmentLayoutBinding
 import com.meeweel.ciceronlogger.data.UserModel
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
+import javax.inject.Inject
 
 class SingInFragment : MvpAppCompatFragment(R.layout.sign_in_fragment_layout), SignInView {
-
+    @Inject
+    lateinit var router: CustomRouter
     private val presenter: SignInPresenter by moxyPresenter {
         SignInPresenter(
             userRepository = UserRepositoryFactory.create(),
