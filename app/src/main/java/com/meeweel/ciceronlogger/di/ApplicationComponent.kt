@@ -2,7 +2,7 @@ package com.meeweel.ciceronlogger.di
 
 import android.content.Context
 import com.meeweel.ciceronlogger.MainActivity
-import com.meeweel.ciceronlogger.githubuser.GitHubUserPresenter
+import com.meeweel.ciceronlogger.githubuser.di.GitHubUserComponent
 import com.meeweel.ciceronlogger.githunusers.GitHubUsersPresenter
 import dagger.BindsInstance
 import dagger.Component
@@ -22,6 +22,8 @@ import javax.inject.Singleton
 
 interface ApplicationComponent {
 
+    fun provideGitHubUserComponent(): GitHubUserComponent.Builder
+
     @Component.Builder
     interface Builder {
 
@@ -30,7 +32,7 @@ interface ApplicationComponent {
         fun build(): ApplicationComponent
     }
 
+
     fun inject(activity: MainActivity)
-    fun inject(activity: GitHubUsersPresenter)
-    fun inject(activity: GitHubUserPresenter)
+    fun inject(presenter: GitHubUsersPresenter)
 }
