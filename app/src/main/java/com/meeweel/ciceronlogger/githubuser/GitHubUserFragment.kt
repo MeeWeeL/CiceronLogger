@@ -6,8 +6,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.meeweel.ciceronlogger.R
+import com.meeweel.ciceronlogger.app.MainApp
 import com.meeweel.ciceronlogger.data.forretrofit.GitHubUser
-import com.meeweel.ciceronlogger.data.forretrofit.GitHubUserRepositoryFactory
 import com.meeweel.ciceronlogger.databinding.GithubUserInfoLayoutBinding
 import moxy.MvpAppCompatFragment
 import moxy.ktx.moxyPresenter
@@ -19,10 +19,9 @@ class GitHubUserFragment : MvpAppCompatFragment(R.layout.github_user_info_layout
         arguments?.getString(ARG_USER_LOGIN).orEmpty()
     }
     private val presenter: GitHubUserPresenter by moxyPresenter {
-        GitHubUserPresenter(
-            userLogin,
-            userRepository = GitHubUserRepositoryFactory.create()
-        )
+        GitHubUserPresenter(userLogin).apply {
+            MainApp.instance.component.inject(this)
+        }
     }
 
     private lateinit var viewBinging: GithubUserInfoLayoutBinding
