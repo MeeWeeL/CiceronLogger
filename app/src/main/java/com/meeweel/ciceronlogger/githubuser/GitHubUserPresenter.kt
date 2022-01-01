@@ -1,6 +1,7 @@
 package com.meeweel.ciceronlogger.githubuser
 
 import com.meeweel.ciceronlogger.data.forretrofit.GitHubUser
+import com.meeweel.ciceronlogger.data.forretrofit.userrepo.GitHubUserRepoRepository
 import com.meeweel.ciceronlogger.data.forretrofit.GitHubUserRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.annotations.NonNull
@@ -18,6 +19,10 @@ class GitHubUserPresenter(
     @Inject
     lateinit var userRepository: GitHubUserRepository
 
+    @Inject
+    lateinit var userRepoRepository: GitHubUserRepoRepository
+
+
 
 
     override fun onFirstViewAttach() {
@@ -34,6 +39,7 @@ class GitHubUserPresenter(
     private fun setSubject() {
         subject
             .subscribe({
+                userRepoRepository.getUserByLogin(it.login!!)
                 viewState.showResult(it)
             },{})
     }

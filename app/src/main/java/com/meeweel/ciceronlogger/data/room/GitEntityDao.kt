@@ -7,7 +7,7 @@ import androidx.room.Query
 import io.reactivex.rxjava3.core.Single
 
 @Dao
-interface gitEntityDao {
+interface GitEntityDao {
 
     @Query("SELECT MAX(id) AS id FROM Entity")
     fun getQuantity(): Int

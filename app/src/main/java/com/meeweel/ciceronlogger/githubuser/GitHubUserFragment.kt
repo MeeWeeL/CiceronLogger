@@ -20,7 +20,8 @@ class GitHubUserFragment : MvpAppCompatFragment(R.layout.github_user_info_layout
     }
     private val presenter: GitHubUserPresenter by moxyPresenter {
         GitHubUserPresenter(userLogin).apply {
-            MainApp.instance.component.inject(this)
+//            MainApp.instance.component.inject(this)
+            MainApp.instance.component.provideGitHubUserComponent().build().inject(this)
         }
     }
 

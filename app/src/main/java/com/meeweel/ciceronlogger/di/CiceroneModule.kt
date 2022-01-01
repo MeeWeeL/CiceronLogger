@@ -2,13 +2,13 @@ package com.meeweel.ciceronlogger.di
 
 import com.github.terrakok.cicerone.Cicerone
 import com.github.terrakok.cicerone.NavigatorHolder
-import com.github.terrakok.cicerone.Router
+import com.meeweel.ciceronlogger.githubuser.di.GitHubUserComponent
 import com.meeweel.ciceronlogger.cicerone.CustomRouter
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
 
-@Module
+@Module(subcomponents = [GitHubUserComponent::class])
 class CiceroneModule {
 
     var cicerone: Cicerone<CustomRouter> = Cicerone.create(CustomRouter())
