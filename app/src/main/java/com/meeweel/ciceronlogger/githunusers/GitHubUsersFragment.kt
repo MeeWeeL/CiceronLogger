@@ -48,6 +48,11 @@ class GitHubUsersFragment : MvpAppCompatFragment(R.layout.github_choose_user_lay
         Toast.makeText(requireContext(), text, Toast.LENGTH_SHORT).show()
     }
 
+    override fun setProgressBar(state: Boolean) {
+        val visibilityMode = if (state) View.VISIBLE else View.GONE
+        viewBinging.progressBar.visibility = visibilityMode
+    }
+
     companion object {
         fun newInstance(): Fragment = GitHubUsersFragment()
     }

@@ -8,6 +8,10 @@ interface GitHubUsersView : MvpView {
 
     @Skip
     fun toastError(text: String)
+
     @SingleState
     fun setName(name: String)
+
+    @SingleState
+    fun setProgressBar(state: Boolean)
 }
