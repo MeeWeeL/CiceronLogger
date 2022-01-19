@@ -47,6 +47,12 @@ class GitHubUsersPresenter(
             .getUsers()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe {
+                viewState.setProgressBar(true)
+            }
+            .doFinally {
+                viewState.setProgressBar(false)
+            }
             .subscribe({
                 length = it.size
         },{})
@@ -57,7 +63,9 @@ class GitHubUsersPresenter(
         subject
             .subscribe({ login ->
                 viewState.setName(login)
-            },{})
+            },{
+                viewState.toastError(it.message.toString())
+            })
     }
 
     private fun findUser(id: Int) {
@@ -65,6 +73,12 @@ class GitHubUsersPresenter(
             .getUsers()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe {
+                viewState.setProgressBar(true)
+            }
+            .doFinally {
+                viewState.setProgressBar(false)
+            }
             .subscribe({ list ->
                 for (item in list) {
                     if (item.id == id.toString()) {
@@ -73,6 +87,8 @@ class GitHubUsersPresenter(
                     }
                 }
 
-            },{})
+            },{
+                viewState.toastError(it.message.toString())
+            })
     }
 }

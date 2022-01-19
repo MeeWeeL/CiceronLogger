@@ -31,9 +31,17 @@ class GitHubUserPresenter(
             .getUserByLogin(userLogin)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe {
+                viewState.setProgressBar(true)
+            }
+            .doFinally {
+                viewState.setProgressBar(false)
+            }
             .subscribe({
                 subject.onNext(it)
-            },{})
+            },{
+                viewState.toastError(it.message.toString())
+            })
     }
 
     private fun setSubject() {

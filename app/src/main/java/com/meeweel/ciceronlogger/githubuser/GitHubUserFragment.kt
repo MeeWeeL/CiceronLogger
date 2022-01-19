@@ -45,6 +45,11 @@ class GitHubUserFragment : MvpAppCompatFragment(R.layout.github_user_info_layout
             .into(viewBinging.userPhoto)
     }
 
+    override fun setProgressBar(state: Boolean) {
+        val visibilityMode = if (state) View.VISIBLE else View.GONE
+        viewBinging.progressBar.visibility = visibilityMode
+    }
+
     companion object {
         private const val ARG_USER_LOGIN = "arg_user_login"
         fun newInstance(userLogin: String): Fragment =

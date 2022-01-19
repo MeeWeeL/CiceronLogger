@@ -9,6 +9,10 @@ interface GitHubUserView : MvpView {
 
     @Skip
     fun toastError(text: String)
+
     @SingleState
     fun showResult(user: GitHubUser)
+
+    @SingleState
+    fun setProgressBar(state: Boolean)
 }
